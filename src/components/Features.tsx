@@ -50,7 +50,9 @@ const Features = () => {
     <section id="features" className="section-padding bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything you need to <span className="text-gradient">stay online</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Everything you need to <span className="text-accent">stay online</span>
+          </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Comprehensive monitoring for every part of your tech stack, with alerts that actually reach you.
           </p>
@@ -60,10 +62,10 @@ const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="glass-card p-6 rounded-lg transition-all duration-300 hover:border-primary/50 hover:translate-y-[-5px]"
+              className="glass-card p-6 rounded-lg transition-all duration-300 hover:border-accent/50 hover:translate-y-[-5px]"
             >
-              <div className="rounded-full bg-primary/10 w-12 h-12 flex items-center justify-center mb-4">
-                <feature.icon className="h-6 w-6 text-primary" />
+              <div className="rounded-full bg-accent/10 w-12 h-12 flex items-center justify-center mb-4">
+                <feature.icon className="h-6 w-6 text-accent" />
               </div>
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-gray-400">{feature.description}</p>

@@ -74,10 +74,12 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="section-padding bg-gradient-to-b from-background via-background/95 to-secondary/20">
+    <section id="pricing" className="section-padding bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, transparent <span className="text-gradient">pricing</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Simple, transparent <span className="text-accent">pricing</span>
+          </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             No hidden fees, no complicated tiers. Just straightforward plans to keep your services online.
           </p>
@@ -88,7 +90,7 @@ const Pricing = () => {
             <div 
               key={index} 
               className={`glass-card rounded-xl overflow-hidden ${
-                plan.popular ? "border-primary ring-1 ring-primary relative" : "border-gray-800"
+                plan.popular ? "border-accent ring-1 ring-accent relative" : "border-gray-800"
               }`}
             >
               {plan.popular && (
