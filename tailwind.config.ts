@@ -90,6 +90,10 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "heartbeat": "heartbeat 2s ease-in-out infinite",
       },
+      fontFamily: {
+        'title': ['Instrument Sans', 'sans-serif'],
+        'body': ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
