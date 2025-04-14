@@ -1,6 +1,6 @@
 
 import React from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Globe, Shield, Database, Smartphone, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 
