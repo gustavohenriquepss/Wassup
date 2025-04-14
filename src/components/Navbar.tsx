@@ -2,10 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
+import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useTranslation();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -21,11 +25,9 @@ const Navbar = () => {
   }, []);
   
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-gray-800" : "bg-transparent"
-      }`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
+    }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -45,19 +47,21 @@ const Navbar = () => {
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
-              <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
-              <a href="#statuspage" className="text-gray-300 hover:text-white transition-colors">Status Page</a>
-              <a href="#faq" className="text-gray-300 hover:text-white transition-colors">FAQ</a>
+              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">{t('features')}</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">{t('pricing')}</a>
+              <a href="#statuspage" className="text-muted-foreground hover:text-foreground transition-colors">{t('statusPage')}</a>
+              <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors">{t('faq')}</a>
             </div>
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
+            <ThemeToggle />
             <Button variant="outline" size="sm">
-              Log in
+              {t('login')}
             </Button>
             <Button size="sm">
-              Start for Free
+              {t('startFree')}
             </Button>
           </div>
           
@@ -72,20 +76,23 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-sm border-b border-gray-800">
+        <div className="md:hidden bg-background/95 backdrop-blur-sm border-b border-border">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#features" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Features</a>
-            <a href="#pricing" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Pricing</a>
-            <a href="#statuspage" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Status Page</a>
-            <a href="#faq" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">FAQ</a>
+            <a href="#features" className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground">{t('features')}</a>
+            <a href="#pricing" className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground">{t('pricing')}</a>
+            <a href="#statuspage" className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground">{t('statusPage')}</a>
+            <a href="#faq" className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground">{t('faq')}</a>
             <div className="flex flex-col space-y-2 mt-4 px-3 py-2">
+              <div className="flex space-x-2">
+                <LanguageSwitcher />
+                <ThemeToggle />
+              </div>
               <Button variant="outline" className="w-full" size="sm">
-                Log in
+                {t('login')}
               </Button>
               <Button className="w-full" size="sm">
-                Start for Free
+                {t('startFree')}
               </Button>
             </div>
           </div>
