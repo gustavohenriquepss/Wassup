@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
@@ -11,21 +12,32 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem("theme") as Theme;
-    if (savedTheme) {
-      return savedTheme;
-    }
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return "dark";
+    // We need to check if window is defined for SSR
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem("theme") as Theme;
+      if (savedTheme) {
+        return savedTheme;
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return "dark";
+      }
     }
     return "dark";
   });
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-    console.log("Theme changed to:", theme);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("theme", theme);
+      
+      // Remove both classes and then add the current one
+      document.documentElement.classList.remove("light", "dark");
+      document.documentElement.classList.add(theme);
+      
+      // Force a repaint to ensure styles are applied
+      document.documentElement.style.color = document.documentElement.style.color;
+      
+      console.log("Theme changed to:", theme, "Classes:", document.documentElement.className);
+    }
   }, [theme]);
 
   const toggleTheme = () => {
