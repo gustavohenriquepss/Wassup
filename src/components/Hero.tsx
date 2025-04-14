@@ -1,44 +1,40 @@
-
 import React from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Bell, Smartphone, Globe, Database, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTranslation } from "react-i18next";
 
 const Hero = () => {
-  const { t } = useTranslation();
-
   return (
     <div className="relative overflow-hidden pt-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="w-full lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-accent">{t('monitor')}</span><br />
-              <span className="text-foreground">{t('sleep')}</span>
+              <span className="text-accent">Monitor everything.</span><br />
+              <span className="text-white">Sleep better.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              {t('realTimeAlerts')}
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+              Real-time alerts for your websites, APIs, databases, SSL certificates, and domains. All in one place.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="text-lg px-8">
-                {t('startFree')}
+                Start for Free
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8">
-                {t('pricing')}
+                View Plans
               </Button>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-y-3 mt-10 justify-center lg:justify-start">
               <div className="flex items-center sm:mr-6">
                 <Check className="text-accent h-5 w-5 mr-2" />
-                <span className="text-muted-foreground">{t('noCredit')}</span>
+                <span className="text-gray-300">No credit card required</span>
               </div>
               <div className="flex items-center">
                 <Check className="text-accent h-5 w-5 mr-2" />
-                <span className="text-muted-foreground">{t('setup')}</span>
+                <span className="text-gray-300">5 minute setup</span>
               </div>
             </div>
           </div>
