@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ArrowRight, Check, Bell, Smartphone, Globe, Database, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,12 +10,12 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center">
           <div className="w-full lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-accent">Monitor everything.</span><br />
-              <span className="text-white">Sleep better.</span>
+              <span className="text-accent">AI-powered monitoring.</span><br />
+              <span className="text-white">Peace of mind.</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
-              Real-time alerts for your websites, APIs, databases, SSL certificates, and domains. All in one place.
+              Intelligent AI agents monitor your websites, APIs, and infrastructure 24/7, detecting and resolving issues before they impact your users.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
